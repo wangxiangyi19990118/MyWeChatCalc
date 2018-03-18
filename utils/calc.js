@@ -26,7 +26,7 @@ let isEqual = false;//判断是否按了“=”按钮
 let isBack= true;//判断能否按下BACK按钮
 let isClick= false;//判断是否按下了几个数字键
 let displaynum=0;
-let displayOp='';
+let displayOp = "";
 let code;
 /**
  * 重置程序状态
@@ -144,55 +144,57 @@ function tryAppend(num, code) {
 function addOp(code) {
   console.log(code);
     if(isNumber(code)){
-      if (op == 0) {//证明是第一计算数
+      console.log(code);
         isClick = true;//按下了数字键
         count2++;
         isBack = true;//可以按下BACK键
         switch (1) {
           case 1:
+            if (displaynum.length > 17) { //如果位数超了，就不再进行输入
+
+            }
+            console.log("fgggdcf");
             if (op == 0) {//证明是第一次计算，没有按加减乘除四个键
               if (isPoint == false) {//没有按下小数点键，即整数计算
                 Firstnumber = parseFloat(tryAppend(displaynum + code));
                 var first = Firstnumber;
-                Number =parseInt(first) ;
+                Number = parseInt(first);
                 if (Firstnumber % 1 != 0)//如果结果是小数，直接输出结果
-                  displaynum=Firstnumber;
+                  displaynum = Firstnumber;
                 else//如果结果是整数，将浮点数转为整数显示
-                  displaynum =parseInt( Firstnumber);
+                  displaynum = parseInt(Firstnumber);
               } else if (isPoint == true)//按下了小数点键，就没有了判断结果是否是整数的阶段
               {
-                Firstnumber =parseInt(displaynum);
+                Firstnumber = parseInt(displaynum);
                 Thirdnumber = Firstnumber;
               }
               Thirdnumber = Firstnumber;//记录最近一次操作的结果
               isFirst = true;
             }
-           else if(!displayOp=='') {//第二个操作数的计算
-                if (displaynum=="0")
-                  break;
-                var second = Secondnumber;
-                console.log(second);
-                Number = parseInt( second);
-                if (isPoint == false) {//判断是否按下了小数点键，其余判断和显示同上
-                  isSecNull = true;
-                  Secondnumber1 = parseFloat(tryAppend(displaynum + code));
-                  Secondnumber = Secondnumber1;
-                  if (Secondnumber % 1 != 0)
-                    displaynum=Secondnumber+code;
-                  else
-                    text.setText(parseInt (Secondnumber1));
-                }
-                else if (isPoint == true) {//按了小数点键后的计算
-                  isSecNull = true;
-                 displaynum+=code;
-                  Secondnumber =displaynum;
-                }
-                Thirdnumber = Secondnumber;//记录最近一次的操作结果
+            else  {//第二个操作数的计算
+              if (displaynum == "0")
+                break;
+              var second = Secondnumber;
+              console.log(second);
+              Number = parseInt(second);
+              if (isPoint == false) {//判断是否按下了小数点键，其余判断和显示同上
+                isSecNull = true;
+                Secondnumber1 = parseFloat(tryAppend(displaynum + code));
+                Secondnumber = Secondnumber1;
+                if (Secondnumber % 1 != 0)
+                  displaynum = Secondnumber + code;
+                else
+                  displaynum = parseInt( Secondnumber1 );
               }
-        } if (displaynum.length> 17) { //如果位数超了，就不再进行输入
-      
-        }
-    }
+              else if (isPoint == true) {//按了小数点键后的计算
+                isSecNull = true;
+                displaynum += code;
+                Secondnumber = displaynum;
+              }
+              Thirdnumber = Secondnumber;//记录最近一次的操作结果
+            }
+            
+        } 
     }
     if (isOperator(code)){
       switch(code){

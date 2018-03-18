@@ -16,7 +16,6 @@ Page({
   },
   btnClicked: function(e){
     var code = e.target.dataset.op
-   // console.log(code)
     calc.addOp(code)
     console.log(calc.getVars())
     this.setData({calc: calc.getVars()})
