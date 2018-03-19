@@ -3,6 +3,8 @@
 
 这是一个的仿Windows计算器的微信小程序,目前还存在一些问题，并不能保证完全通过所有测试样例
 
-本计算器的样式参考此仓库(https://github.com/boyce-ywr/wxapp-calc)，逻辑原创
+本计算器的样式参考此仓库(https://github.com/boyce-ywr/wxapp-calc)
+
+逻辑原创
 
 附测试样例和答案
