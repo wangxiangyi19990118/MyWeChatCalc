@@ -179,7 +179,7 @@ function addOp(code) {
               Number = parseInt(second);
               if (isPoint == false) {//判断是否按下了小数点键，其余判断和显示同上
                 isSecNull = true;
-                Secondnumber1 = parseFloat(tryAppend(displaynum + code));
+                Secondnumber1 = parseFloat(tryAppend(Number + code));
                 Secondnumber = Secondnumber1;
                 if (Secondnumber % 1 != 0)
                   displaynum = Secondnumber + code;
